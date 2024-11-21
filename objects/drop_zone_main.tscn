@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpu846x4ljq0c"]
+
+[ext_resource type="Script" path="res://objects/DropZoneMain.gd" id="1_28k4g"]
+[ext_resource type="Script" path="res://objects/ZoneClicked.gd" id="1_50trm"]
+[ext_resource type="Texture2D" uid="uid://cq38tr3k0do84" path="res://simple-card-pile-ui-e9f52b0b3485fb83dd8072fe8098e820d5b90236/assets/card_empty.png" id="1_hy218"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpnma"]
+size = Vector2(161, 232)
+
+[node name="DropZoneMain" type="Node2D"]
+script = ExtResource("1_28k4g")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_50trm")
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -89.0
+offset_top = -123.0
+offset_right = 90.0
+offset_bottom = 126.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_hpnma")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_hy218")
+
+[connection signal="ButtonPressed" from="Control" to="." method="_on_control_button_pressed"]
+[connection signal="pressed" from="Control/Button" to="Control" method="_on_button_pressed"]

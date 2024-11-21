@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpwekdgf5u6kx"]
+
+[ext_resource type="PackedScene" uid="uid://cpu846x4ljq0c" path="res://objects/drop_zone_main.tscn" id="1_ocay2"]
+[ext_resource type="Script" path="res://Rooms/MainRoomScript.gd" id="1_p4eas"]
+[ext_resource type="PackedScene" uid="uid://bkbyx8vfltjvp" path="res://debug_panel.tscn" id="4_4ipfj"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_p4eas")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1152, 648)
+zoom = Vector2(0.5, 0.5)
+
+[node name="PlayerDropZone" parent="Camera2D" instance=ExtResource("1_ocay2")]
+position = Vector2(1, 151)
+
+[node name="PlayerDeck2" parent="Camera2D" instance=ExtResource("1_ocay2")]
+position = Vector2(-730, 479)
+
+[node name="OponentDeck2" parent="Camera2D" instance=ExtResource("1_ocay2")]
+position = Vector2(-763, -432)
+
+[node name="OponentDeck1" parent="Camera2D" instance=ExtResource("1_ocay2")]
+position = Vector2(-987, -432)
+
+[node name="OponentDropZone" parent="Camera2D" instance=ExtResource("1_ocay2")]
+position = Vector2(0, -160)
+
+[node name="PlayerDeck1" parent="Camera2D" instance=ExtResource("1_ocay2")]
+position = Vector2(-970, 478)
+
+[node name="DEBUGPanel" parent="Camera2D" instance=ExtResource("4_4ipfj")]
+position = Vector2(558, -658)
+
+[connection signal="ButtonPressed" from="Camera2D/PlayerDropZone" to="." method="_on_player_drop_zone_button_pressed"]
+[connection signal="ButtonPressed" from="Camera2D/PlayerDeck2" to="." method="_on_player_deck_2_button_pressed"]
+[connection signal="ButtonPressed" from="Camera2D/OponentDeck2" to="." method="_on_oponent_deck_2_button_pressed"]
+[connection signal="ButtonPressed" from="Camera2D/OponentDeck1" to="." method="_on_oponent_deck_1_button_pressed"]
+[connection signal="ButtonPressed" from="Camera2D/OponentDropZone" to="." method="_on_oponent_drop_zone_button_pressed"]
+[connection signal="ButtonPressed" from="Camera2D/PlayerDeck1" to="." method="_on_player_deck_1_button_pressed"]
+
+[editable path="Camera2D/PlayerDropZone"]
+[editable path="Camera2D/OponentDeck1"]
+[editable path="Camera2D/PlayerDeck1"]
