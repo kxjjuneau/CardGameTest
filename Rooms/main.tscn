@@ -1,44 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpwekdgf5u6kx"]
+[gd_scene load_steps=5 format=3 uid="uid://bpwekdgf5u6kx"]
 
 [ext_resource type="PackedScene" uid="uid://cpu846x4ljq0c" path="res://objects/drop_zone_main.tscn" id="1_ocay2"]
 [ext_resource type="Script" path="res://Rooms/MainRoomScript.gd" id="1_p4eas"]
+[ext_resource type="Texture2D" uid="uid://dyqbvshlflkxw" path="res://Assets/MajorArcana/CardBack.png" id="3_0rues"]
 [ext_resource type="PackedScene" uid="uid://bkbyx8vfltjvp" path="res://debug_panel.tscn" id="4_4ipfj"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_p4eas")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1152, 648)
+position = Vector2(2006, 13)
 zoom = Vector2(0.5, 0.5)
 
-[node name="PlayerDropZone" parent="Camera2D" instance=ExtResource("1_ocay2")]
-position = Vector2(1, 151)
-
 [node name="PlayerDeck2" parent="Camera2D" instance=ExtResource("1_ocay2")]
-position = Vector2(-730, 479)
+position = Vector2(-1626, 905)
 
 [node name="OponentDeck2" parent="Camera2D" instance=ExtResource("1_ocay2")]
-position = Vector2(-763, -432)
+position = Vector2(-1689, -940)
 
 [node name="OponentDeck1" parent="Camera2D" instance=ExtResource("1_ocay2")]
-position = Vector2(-987, -432)
+position = Vector2(-1913, -940)
+
+[node name="Control" parent="Camera2D/OponentDeck1" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" parent="Camera2D/OponentDeck1/Control" index="0"]
+metadata/_edit_use_anchors_ = true
 
 [node name="OponentDropZone" parent="Camera2D" instance=ExtResource("1_ocay2")]
-position = Vector2(0, -160)
+position = Vector2(-98, -590)
 
 [node name="PlayerDeck1" parent="Camera2D" instance=ExtResource("1_ocay2")]
-position = Vector2(-970, 478)
+position = Vector2(-1866, 904)
+
+[node name="Control" parent="Camera2D/PlayerDeck1" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" parent="Camera2D/PlayerDeck1/Control" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -3.075
+anchor_right = 2.554
+offset_top = 0.0
+offset_right = -12.16
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" parent="Camera2D/PlayerDeck1/StaticBody2D" index="1"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0rues")
 
 [node name="DEBUGPanel" parent="Camera2D" instance=ExtResource("4_4ipfj")]
 position = Vector2(558, -658)
 
-[connection signal="ButtonPressed" from="Camera2D/PlayerDropZone" to="." method="_on_player_drop_zone_button_pressed"]
 [connection signal="ButtonPressed" from="Camera2D/PlayerDeck2" to="." method="_on_player_deck_2_button_pressed"]
 [connection signal="ButtonPressed" from="Camera2D/OponentDeck2" to="." method="_on_oponent_deck_2_button_pressed"]
 [connection signal="ButtonPressed" from="Camera2D/OponentDeck1" to="." method="_on_oponent_deck_1_button_pressed"]
 [connection signal="ButtonPressed" from="Camera2D/OponentDropZone" to="." method="_on_oponent_drop_zone_button_pressed"]
 [connection signal="ButtonPressed" from="Camera2D/PlayerDeck1" to="." method="_on_player_deck_1_button_pressed"]
 
-[editable path="Camera2D/PlayerDropZone"]
 [editable path="Camera2D/OponentDeck1"]
 [editable path="Camera2D/PlayerDeck1"]

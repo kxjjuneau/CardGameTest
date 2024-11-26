@@ -12,37 +12,56 @@ const CARD_CLUBS_A = preload("res://simple-card-pile-ui-e9f52b0b3485fb83dd8072fe
 const CARD_CLUBS_J = preload("res://simple-card-pile-ui-e9f52b0b3485fb83dd8072fe8098e820d5b90236/assets/card_clubs_J.png")
 const CARD_CLUBS_K = preload("res://simple-card-pile-ui-e9f52b0b3485fb83dd8072fe8098e820d5b90236/assets/card_clubs_K.png")
 const CARD_CLUBS_Q = preload("res://simple-card-pile-ui-e9f52b0b3485fb83dd8072fe8098e820d5b90236/assets/card_clubs_Q.png")
+const _1_OFCOINS = preload("res://Assets/MinorArcana/Coins/1ofcoins.png")
+const _2_OFCOINS = preload("res://Assets/MinorArcana/Coins/2ofcoins.png")
+const _3_OFCOINS = preload("res://Assets/MinorArcana/Coins/3ofcoins.png")
+const _4_OF_COINS = preload("res://Assets/MinorArcana/Coins/4OfCoins.png")
+const _5_OFCOINS = preload("res://Assets/MinorArcana/Coins/5ofcoins.png")
+const _6_OFCOINS = preload("res://Assets/MinorArcana/Coins/6ofcoins.png")
+const _7_OFCOINS = preload("res://Assets/MinorArcana/Coins/7ofcoins.png")
+const _8_OF_COINS = preload("res://Assets/MinorArcana/Coins/8ofCoins.png")
+const _9_OFCOINS = preload("res://Assets/MinorArcana/Coins/9ofcoins.png")
+const _10_OFCOINS = preload("res://Assets/MinorArcana/Coins/10ofcoins.png")
+const KINGOFCOINS = preload("res://Assets/MinorArcana/Coins/kingofcoins.png")
+const KNIGHTOFCOINS = preload("res://Assets/MinorArcana/Coins/knightofcoins.png")
+const PAGEOFCOINS = preload("res://Assets/MinorArcana/Coins/pageofcoins.png")
+const QUEENOFCOINS = preload("res://Assets/MinorArcana/Coins/queenofcoins.png")
 enum CardType {
-	CLUBS_02,
-	CLUBS_03,
-	CLUBS_04,
-	CLUBS_05,
-	CLUBS_06,
-	CLUBS_07,
-	CLUBS_08,
-	CLUBS_09,
-	CLUBS_10,
-	CLUBS_A,
-	CLUBS_J,
-	CLUBS_K,
-	CLUBS_Q
+	COINS_1,
+	COINS_2,
+	COINS_3,
+	COINS_4,
+	COINS_5,
+	COINS_6,
+	COINS_7,
+	COINS_8,
+	COINS_9,
+	COINS_10,
+	COINS_PA,
+	COINS_KN,
+	COINS_QU,
+	COINS_KI
+	
+	
 }
 
 
 var card_dict = {
-	CardType.CLUBS_02: Card.new("2 of Clubs", "Clubs", 2, CARD_CLUBS_02),
-	CardType.CLUBS_03: Card.new("3 of Clubs", "Clubs", 3, CARD_CLUBS_03),
-	CardType.CLUBS_04: Card.new("4 of Clubs", "Clubs", 4, CARD_CLUBS_04),
-	CardType.CLUBS_05: Card.new("5 of Clubs", "Clubs", 5, CARD_CLUBS_05),
-	CardType.CLUBS_06: Card.new("6 of Clubs", "Clubs", 6, CARD_CLUBS_06),
-	CardType.CLUBS_07: Card.new("7 of Clubs", "Clubs", 7, CARD_CLUBS_07),
-	CardType.CLUBS_08: Card.new("8 of Clubs", "Clubs", 8, CARD_CLUBS_08),
-	CardType.CLUBS_09: Card.new("9 of Clubs", "Clubs", 9, CARD_CLUBS_09),
-	CardType.CLUBS_10: Card.new("10 of Clubs", "Clubs", 10, CARD_CLUBS_10),
-	CardType.CLUBS_A: Card.new("Ace of Clubs", "Clubs", 11, CARD_CLUBS_A),
-	CardType.CLUBS_J: Card.new("Jack of Clubs", "Clubs", 10, CARD_CLUBS_J),
-	CardType.CLUBS_Q: Card.new("Queen of Clubs", "Clubs", 10, CARD_CLUBS_Q),
-	CardType.CLUBS_K: Card.new("King of Clubs", "Clubs", 10, CARD_CLUBS_K)
+	CardType.COINS_1 :  Card.new("1 of Coins",     "Clubs", 2,  _1_OFCOINS),
+	CardType.COINS_2 :  Card.new("2 of Coins",     "Clubs", 3,  _2_OFCOINS),
+	CardType.COINS_3 :  Card.new("3 of Coins",     "Clubs", 4,  _3_OFCOINS),
+	CardType.COINS_4 :  Card.new("4 of Coins",     "Clubs", 5,  _4_OF_COINS),
+	CardType.COINS_5 :  Card.new("5 of Coins",     "Clubs", 6,  _5_OFCOINS),
+	CardType.COINS_6 :  Card.new("6 of Coins",     "Clubs", 7,  _6_OFCOINS),
+	CardType.COINS_7 :  Card.new("7 of Coins",     "Clubs", 8,  _7_OFCOINS),
+	CardType.COINS_8 :  Card.new("8 of Coins",     "Clubs", 9,  _8_OF_COINS),
+	CardType.COINS_9 :  Card.new("9 of Coinss",    "Clubs", 10, _9_OFCOINS),
+	CardType.COINS_10 : Card.new("10 of Coinss",    "Clubs", 11, _10_OFCOINS),
+	CardType.COINS_PA : Card.new("Page of Coins",   "Clubs", 12, PAGEOFCOINS),
+	CardType.COINS_KN : Card.new("Knight of Coins", "Clubs", 13, KNIGHTOFCOINS),
+	CardType.COINS_QU : Card.new("Queen of Coins",  "Clubs", 14, QUEENOFCOINS),
+	CardType.COINS_KI : Card.new("King of Coins",   "Clubs", 15, KINGOFCOINS)
+
 }
 
 # Called when the node enters the scene tree for the first time.

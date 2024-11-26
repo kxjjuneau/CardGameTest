@@ -20,6 +20,12 @@ config/icon="res://icon.svg"
 CardData="*res://autoloader.gd"
 CardClass="*res://card_class.gd"
 
+[display]
+
+window/size/viewport_width=2048
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="cardgameTest"

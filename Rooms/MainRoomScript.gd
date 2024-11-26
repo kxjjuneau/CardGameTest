@@ -1,12 +1,12 @@
 extends Node
 
-@onready var DropZonestatic_body_2d: Node2D = $Camera2D/PlayerDropZone
 @onready var oponent_drop_zone: Node2D = $Camera2D/OponentDropZone
 
 @onready var oponent_deck_1: Node2D = $Camera2D/OponentDeck1
+@onready var player_deck_1: Node2D = $Camera2D/PlayerDeck1
 
 @onready var debug_panel: Node2D = $Camera2D/DEBUGPanel
-
+const PLAYED_MINOR_EFFECT = preload("res://scenes/effects/played_minor_effect.tscn")
 var debugText: TextEdit = null
 var debugTextforhealth = "Player %s  \n  CPU: %s \n"
 @onready var camera_2d: Camera2D = $Camera2D
@@ -32,9 +32,13 @@ func _process(delta: float) -> void:
 		# Update the position of the instance to follow the mouse position
 		staticBody.position = mousepos
 		if Input.is_action_pressed("selected") && timer <= 0:
-			staticBody.position = DropZonestatic_body_2d.global_position
+			##staticBody.position = DropZonestatic_body_2d.global_position
 			##follow_scene_instance.queue_free()
+			var effect = PLAYED_MINOR_EFFECT.instantiate()
+			effect.position = player_deck_1.global_position
+			add_child(effect)
 			staticBody = null
+			
 			timer = 10
 			cpuTurn()
 			executeTurn()
@@ -42,6 +46,7 @@ func _process(delta: float) -> void:
 			
 			
 			
+		
 
 func executeTurn() -> void:
 	
