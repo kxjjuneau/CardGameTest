@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpwekdgf5u6kx"]
+[gd_scene load_steps=6 format=3 uid="uid://bpwekdgf5u6kx"]
 
 [ext_resource type="PackedScene" uid="uid://cpu846x4ljq0c" path="res://objects/drop_zone_main.tscn" id="1_ocay2"]
 [ext_resource type="Script" path="res://Rooms/MainRoomScript.gd" id="1_p4eas"]
 [ext_resource type="Texture2D" uid="uid://dyqbvshlflkxw" path="res://Assets/MajorArcana/CardBack.png" id="3_0rues"]
 [ext_resource type="PackedScene" uid="uid://bkbyx8vfltjvp" path="res://debug_panel.tscn" id="4_4ipfj"]
+[ext_resource type="PackedScene" uid="uid://nx4kj3quoagy" path="res://scenes/objects/Hand.tscn" id="5_dyklu"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_p4eas")
@@ -52,6 +53,9 @@ texture = ExtResource("3_0rues")
 [node name="DEBUGPanel" parent="Camera2D" instance=ExtResource("4_4ipfj")]
 position = Vector2(558, -658)
 
+[node name="Hand" parent="Camera2D" instance=ExtResource("5_dyklu")]
+position = Vector2(40, 947)
+
 [connection signal="ButtonPressed" from="Camera2D/PlayerDeck2" to="." method="_on_player_deck_2_button_pressed"]
 [connection signal="ButtonPressed" from="Camera2D/OponentDeck2" to="." method="_on_oponent_deck_2_button_pressed"]
 [connection signal="ButtonPressed" from="Camera2D/OponentDeck1" to="." method="_on_oponent_deck_1_button_pressed"]
@@ -60,3 +64,4 @@ position = Vector2(558, -658)
 
 [editable path="Camera2D/OponentDeck1"]
 [editable path="Camera2D/PlayerDeck1"]
+[editable path="Camera2D/Hand"]

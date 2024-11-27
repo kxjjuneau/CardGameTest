@@ -1,7 +1,62 @@
-[gd_scene format=3 uid="uid://nx4kj3quoagy"]
+[gd_scene load_steps=3 format=3 uid="uid://nx4kj3quoagy"]
+
+[ext_resource type="PackedScene" uid="uid://b6buor26dvyui" path="res://scenes/objects/HandSlot.tscn" id="1_epta0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ernq2"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+clip_contents = true
+layout_direction = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -20.15
+anchor_top = -7.4
+anchor_right = 21.15
+anchor_bottom = 1.0
+offset_left = 6.10352e-05
+offset_top = 3.05176e-05
+offset_right = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 0
+columns = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-806, -298)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(828, 336)
+scale = Vector2(1228, 34.7499)
+texture = SubResource("PlaceholderTexture2D_ernq2")
+
+[node name="Control" parent="StaticBody2D" instance=ExtResource("1_epta0")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 80.0
+offset_top = 61.0
+offset_right = 80.0
+offset_bottom = 397.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Control2" parent="StaticBody2D" instance=ExtResource("1_epta0")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 304.0
+offset_top = 25.0
+offset_right = 304.0
+offset_bottom = 25.0
+grow_horizontal = 1
+grow_vertical = 1
