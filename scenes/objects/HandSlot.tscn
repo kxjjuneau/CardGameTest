@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6buor26dvyui"]
+[gd_scene load_steps=3 format=3 uid="uid://b6buor26dvyui"]
+
+[ext_resource type="Script" path="res://scenes/objects/hand_slot.gd" id="1_undtx"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_186oe"]
 
@@ -7,13 +9,26 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1928.0
-offset_bottom = -958.0
+offset_right = -1914.0
+offset_bottom = -853.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 6
+script = ExtResource("1_undtx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
 modulate = Color(1, 1, 1, 0.0588235)
-position = Vector2(60.875, 60.5)
-scale = Vector2(120.25, 121)
+position = Vector2(66.875, 115)
+scale = Vector2(132.25, 230)
 texture = SubResource("PlaceholderTexture2D_186oe")

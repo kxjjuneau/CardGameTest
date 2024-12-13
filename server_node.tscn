@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://baa8yyp7jw0lv"]
+
+[ext_resource type="Script" path="res://Rooms/HostScript.gd" id="1_tlodg"]
+
+[node name="ServerMainNode" type="Node"]
+script = ExtResource("1_tlodg")

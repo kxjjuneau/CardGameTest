@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bkbyx8vfltjvp" path="res://debug_panel.tscn" id="4_4ipfj"]
 [ext_resource type="PackedScene" uid="uid://nx4kj3quoagy" path="res://scenes/objects/Hand.tscn" id="5_dyklu"]
 [ext_resource type="Texture2D" uid="uid://cqutcoa58nlap" path="res://Assets/MajorArcana/Magician.png" id="6_5c3ot"]
-[ext_resource type="Script" path="res://scripts/networking/host_control.gd" id="7_7rw0p"]
-[ext_resource type="Script" path="res://scripts/networking/client_control.gd" id="8_5e34g"]
+[ext_resource type="Script" path="res://Rooms/HostScript.gd" id="7_xg14a"]
+[ext_resource type="Script" path="res://Rooms/ClientScript.gd" id="8_d4sw7"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_p4eas")
@@ -95,7 +95,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("7_7rw0p")
 
 [node name="HostButton" type="Button" parent="HostControl"]
 layout_mode = 1
@@ -109,21 +108,25 @@ offset_bottom = -539.04
 theme_override_font_sizes/font_size = 101
 text = "HOST"
 
+[node name="Node" type="Node" parent="HostControl"]
+script = ExtResource("7_xg14a")
+
 [node name="ClientControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("8_5e34g")
 
 [node name="ConnectButton" type="Button" parent="ClientControl"]
-layout_mode = 0
 offset_left = 3628.0
 offset_top = -1049.0
 offset_right = 4038.0
 offset_bottom = -814.0
 theme_override_font_sizes/font_size = 101
 text = "Connect"
+
+[node name="Node" type="Node" parent="ClientControl"]
+script = ExtResource("8_d4sw7")
 
 [connection signal="ButtonPressed" from="Camera2D/OponentDeck2" to="." method="_on_oponent_deck_2_button_pressed"]
 [connection signal="ButtonPressed" from="Camera2D/OponentDeck1" to="." method="_on_oponent_deck_1_button_pressed"]

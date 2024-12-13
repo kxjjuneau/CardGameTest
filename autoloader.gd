@@ -26,7 +26,13 @@ const KINGOFCOINS = preload("res://Assets/MinorArcana/Coins/kingofcoins.png")
 const KNIGHTOFCOINS = preload("res://Assets/MinorArcana/Coins/knightofcoins.png")
 const PAGEOFCOINS = preload("res://Assets/MinorArcana/Coins/pageofcoins.png")
 const QUEENOFCOINS = preload("res://Assets/MinorArcana/Coins/queenofcoins.png")
-enum CardType {
+
+const _1_OFWANDS = preload("res://Assets/MinorArcana/Wands/1ofwands.png")
+const _2_OFWANDS = preload("res://Assets/MinorArcana/Wands/2ofwands.png")
+const _3_OFWANDS = preload("res://Assets/MinorArcana/Wands/3ofwands.png")
+const WANDSTR = "WANDS"
+const COINSTR = "COINS"
+enum CardCoinType {
 	COINS_1,
 	COINS_2,
 	COINS_3,
@@ -42,14 +48,19 @@ enum CardType {
 	##COINS_QU,
 	##COINS_KI
 	
-	
+}
+
+enum CardWandType {
+	WANDS_1,
+	WANDS_2,
+	WANDS_3
 }
 
 
-var card_dict = {
-	CardType.COINS_1 :  Card.new("1 of Coins",     "Clubs", 2,  _1_OFCOINS),
-	CardType.COINS_2 :  Card.new("2 of Coins",     "Clubs", 3,  _2_OFCOINS),
-	CardType.COINS_3 :  Card.new("3 of Coins",     "Clubs", 4,  _3_OFCOINS),
+var card_coin_dict = {
+	CardCoinType.COINS_1 :  Card.new("1 of Coins",     COINSTR, 1,  _1_OFCOINS),
+	CardCoinType.COINS_2 :  Card.new("2 of Coins",     COINSTR, 2,  _2_OFCOINS),
+	CardCoinType.COINS_3 :  Card.new("3 of Coins",     COINSTR, 3,  _3_OFCOINS),
 	##CardType.COINS_4 :  Card.new("4 of Coins",     "Clubs", 5,  _4_OF_COINS),
 	##CardType.COINS_5 :  Card.new("5 of Coins",     "Clubs", 6,  _5_OFCOINS),
 	##CardType.COINS_6 :  Card.new("6 of Coins",     "Clubs", 7,  _6_OFCOINS),
@@ -63,6 +74,23 @@ var card_dict = {
 	##CardType.COINS_KI : Card.new("King of Coins",   "Clubs", 15, KINGOFCOINS)
 
 }
+
+var card_wand_dict = {
+	CardWandType.WANDS_1 :  Card.new("1 of Wands",    WANDSTR, 1,  _1_OFWANDS),
+	CardWandType.WANDS_2 :  Card.new("2 of Wands",     WANDSTR, 2,  _2_OFWANDS),
+	CardWandType.WANDS_3 :  Card.new("3 of Wands",     WANDSTR, 3,  _3_OFWANDS),
+}
+
+func getCardFromDeckWithKey(x: String, key: int) -> Card :
+	match x:
+		"WANDS":
+			print("GetWandsCard")
+			return card_wand_dict[key]
+		"COINS":
+			print("GETCOINSCARD")
+			return card_coin_dict[key]
+		_:
+			return null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

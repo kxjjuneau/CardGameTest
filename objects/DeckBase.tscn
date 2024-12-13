@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpnma"]
 size = Vector2(161, 232)
 
-[node name="DropZoneMain" type="Node2D"]
+[node name="DeckBase" type="Node2D"]
 script = ExtResource("1_28k4g")
 
 [node name="Control" type="Control" parent="."]
